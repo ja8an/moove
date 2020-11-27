@@ -1,20 +1,27 @@
 import { useMemo, useState } from "react";
 import { Jumbotron, Button, Badge, Row, Col, Form } from "react-bootstrap";
-import omdb from '../../../api/OMDb';
+import tmdb, {imgUrl} from '../../../api/TMDb';
 import { faImdb } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {randomInt} from '../../../utils';
 
 const Home = () => {
 
     const [movie, setMovie] = useState(null);
 
     useMemo(() => {
-        if (movie == null)
-            omdb.random().then(response => {
-                console.log(response);
-                setMovie(response);
+        if (movie == null) {
+            tmdb.trendOfTheDay().then(response => {
+
+                let results = response.data.results;
+
+                console.log('results', results)
+
+                setMovie(results[randomInt(0, results.length - 1)]);
+
             });
+        }
     }, [movie]);
 
     return <>
@@ -32,20 +39,22 @@ const Home = () => {
             </Row>
         </Form>
 
-        <Jumbotron style={{ backgroundColor: 'transparent' }}>
+        {JSON.stringify(movie)}
+
+        {movie && <Jumbotron style={{backgroundColor: 'transparent'}}>
             <Row>
                 <Col sm={12} md={4}>
                     <h1>
-                        <Link to={`/${movie?.imdbID}`}>{movie?.Title}</Link>
+                        <Link to={`/${movie.id}`}>{movie.title}</Link>
                     </h1>
-                    <p>{movie?.Plot}</p>
+                    <p>{movie.overview}</p>
                     <Badge variant={'primary'}>
                         <FontAwesomeIcon icon={faImdb} />
-                        {movie?.imdbRating}/10
+                        {movie.vote_average}/10
                         </Badge>
                 </Col>
             </Row>
-        </Jumbotron>
+        </Jumbotron>}
 
     </>;
 };

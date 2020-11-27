@@ -1,34 +1,28 @@
-import axios from "./request";
-import { randomInt } from "../utils"
+import axios from "axios";
 
-const omdb = (() => {
+const request = axios.create({
+    baseURL: 'http://www.omdbapi.com/',
+    params: {
+        apiKey: process.env.REACT_APP_API_KEY
+    }
+});
 
-    const output = {
+const omdb = () => {
+
+    return {
         search(s) {
-            return axios.get('/', {
+            return request.get('/', {
                 params: { s }
-            });
-        },
-        random() {
-            const t = String.fromCharCode(randomInt(48, 90));
-            return axios.get('/', {
-                params: { t }
-            }).then(response => {
-                if (!response.data)
-                    return output.random();
-                return response.data;
             });
         },
         byTitle(title) {
             return "http://www.omdbapi.com/?t=a";
         },
-        get(id) {
+        byId(id) {
             return id;
         }
     };
 
-    return output;
+};
 
-})();
-
-export default omdb;
+export default omdb();
