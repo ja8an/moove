@@ -15,7 +15,8 @@ const HomePage = () => {
     const submit = (e) => {
         e.stopPropagation();
         e.preventDefault();
-        history.push({ hash: `search?q=${searchTerm}` });
+        history.push({ pathname: 'search', search: `q=${searchTerm}` });
+        return false;
     };
 
     return <>
