@@ -1,6 +1,5 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getFavorites } from "../../../redux/selectors";
