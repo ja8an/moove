@@ -1,4 +1,4 @@
-![alt text](https://github.com/lneves7/cinemate/blob/master/src/assets/img/logo.svg?sanitize=true)
+![alt text](https://github.com/ja8an/moove/blob/main/src/assets/img/logo.png?sanitize=true)
 
 Simple app to explore both OMDb and TMDb database.
 
