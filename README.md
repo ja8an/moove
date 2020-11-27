@@ -1,9 +1,6 @@
-![alt text](https://github.com/ja8an/moove/blob/main/src/assets/img/logo.png?sanitize=true)
+![moove logo](https://github.com/ja8an/moove/blob/main/src/assets/img/logo.png?sanitize=true)
 
-Simple app to explore both OMDb and TMDb database.
-
-[http://ombdapi.com](http://ombdapi.com)
-[https://www.themoviedb.org/](https://www.themoviedb.org/)
+simple (open) app to explore both [OMDb](http://ombdapi.com) and [TMDb](https://www.themoviedb.org/) databases.
 
 ## Main Features
 
@@ -14,6 +11,6 @@ Simple app to explore both OMDb and TMDb database.
 
 ## Libs
 
-- Axios 
-- Redux
-- React-bootstrap
+- [Axios](https://github.com/axios/axios) 
+- [Redux](https://redux.js.org/introduction/)
+- [React-bootstrap](https://react-bootstrap.github.io)
