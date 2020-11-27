@@ -3,7 +3,7 @@ import React from 'react';
 import SearchLayout from '../template/search-layout';
 import HomePage from '../pages/home-page';
 import SearchPage from '../pages/search-page';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { HashRouter as Router, Switch } from 'react-router-dom';
 import MainLayout from '../template/main-layout';
 import MoviePage from '../pages/movie-page';
 import FavoritesPage from '../pages/favorites-page';
@@ -11,7 +11,7 @@ import { ToastProvider } from 'react-toast-notifications'
 
 
 const RouteLayout = (props) => {
-    return <Router basename={process.env.PUBLIC_URL}>
+    return <Router basename={process.env.PUBLIC_URL} hashType='noslash'>
         <ToastProvider placement="top-center">
             <Switch>
                 <SearchLayout path={'/'} exact component={HomePage} />

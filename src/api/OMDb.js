@@ -16,9 +16,6 @@ const omdb = () => {
                 params: { s, page }
             });
         },
-        byTitle(title) {
-            return "http://www.omdbapi.com/?t=a";
-        },
         byId(i) {
             return request.get('/', {
                 params: { i, plot: 'full' }

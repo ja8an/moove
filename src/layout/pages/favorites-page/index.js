@@ -20,7 +20,7 @@ const FavoritesPage = ({ favorites }) => {
                 </div>
         </>}
 
-        {favorites && favorites.length > 0 &&
+        {favorites && Object.keys(favorites).length > 0 &&
             <Row>
                 {Object.keys(favorites).map((movie, index) => {
                     return <Col sm={12} md={4} lg={3} key={index}>
