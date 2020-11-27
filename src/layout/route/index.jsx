@@ -11,7 +11,7 @@ import { ToastProvider } from 'react-toast-notifications'
 
 
 const RouteLayout = (props) => {
-    return <Router>
+    return <Router basename={process.env.PUBLIC_URL}>
         <ToastProvider placement="top-center">
             <Switch>
                 <SearchLayout path={'/'} exact component={HomePage} />
