@@ -1,15 +1,10 @@
 import { useState } from 'react';
-import { Form, Row, Col, Button } from 'react-bootstrap';
-import { login } from '../../../api/auth';
+import { Form, Button } from 'react-bootstrap';
 
 const LoginForm = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const authenticate = () => {
-        login(username, password).then(console.log).catch(console.error);
-    };
 
     return <Form className={'p-1'}>
 

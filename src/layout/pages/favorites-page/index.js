@@ -8,8 +8,6 @@ import MovieCard from "../../elements/movie-card";
 
 const FavoritesPage = ({ favorites }) => {
 
-    const [login, setLogin] = useState(false);
-
     return <>
 
         <h5 className='text-primary'>
@@ -17,17 +15,21 @@ const FavoritesPage = ({ favorites }) => {
             Favorites
             </h5>
 
-        {!login && <div className='p-3 text-center text-muted'>
-            You must be logged in to sync your favorites!
-                </div>}
+        {(!favorites || Object.keys(favorites).length === 0) && <>
+            <div className='p-5 text-center text-muted'>
+                No favorite movie yet!
+                </div>
+        </>}
 
-        <Row>
-            {favorites && Object.keys(favorites).map((movie, index) => {
-                return <Col sm={12} md={4} lg={3} key={index}>
-                    <MovieCard movie={favorites[movie]} />
-                </Col>
-            })}
-        </Row>
+        {favorites && favorites.length > 0 &&
+            <Row>
+                {Object.keys(favorites).map((movie, index) => {
+                    return <Col sm={12} md={4} lg={3} key={index}>
+                        <MovieCard movie={favorites[movie]} />
+                    </Col>
+                })}
+            </Row>
+        }
 
     </>;
 };

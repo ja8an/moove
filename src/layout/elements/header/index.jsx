@@ -1,10 +1,9 @@
-import { Navbar, Nav, Jumbotron, Badge, Container, Image, Row, Col, NavDropdown, Form, FormControl, FormGroup, Button, Dropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 import logo from '../../../assets/img/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import './index.scss';
-import LoginForm from '../login-form';
 
 
 const Header = ({ showLogo = true, gradient = false, ...rest }) => {
@@ -13,7 +12,7 @@ const Header = ({ showLogo = true, gradient = false, ...rest }) => {
         <Container>
             <Navbar bg="transparent" variant={gradient ? 'dark' : 'light'} expand="lg">
 
-                {showLogo && <Link to={'/'} component={Navbar.Brand}>
+                {showLogo && <Link to={'/'} className='navbar-brand'>
                     <Image src={logo} width={150} alt={'moove logo'} className='p-3' />
                 </Link>}
 
@@ -22,21 +21,10 @@ const Header = ({ showLogo = true, gradient = false, ...rest }) => {
                 <Navbar.Collapse id="basic-navbar-nav">
 
                     <Nav className={'ml-auto'}>
-                        <Link to={'/stared'} component={Nav.Link}>
+                        <Link to={'/stared'} className='nav-link'>
                             <FontAwesomeIcon icon={faStar} />{' '}Favorite Movies
                         </Link>
                     </Nav>
-
-                    <Dropdown>
-
-                        <Dropdown.Toggle variant="transparent" className={gradient ? 'text-light' : 'text-dark'} id="dropdown-basic">Sign in</Dropdown.Toggle>
-
-                        <Dropdown.Menu style={{ width: 300 }} align="right">
-                            <Dropdown.ItemText>
-                                <LoginForm />
-                            </Dropdown.ItemText>
-                        </Dropdown.Menu>
-                    </Dropdown>
 
                 </Navbar.Collapse>
 
