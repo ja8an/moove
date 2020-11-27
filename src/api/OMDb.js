@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const request = axios.create({
-    baseURL: 'http://www.omdbapi.com/',
+    baseURL: 'https://www.omdbapi.com/',
     params: {
         apiKey: process.env.REACT_APP_OMDB_API_KEY,
         type: 'movie'
