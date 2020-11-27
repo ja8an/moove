@@ -2,6 +2,8 @@
 
 simple (open) app to explore both [OMDb](http://ombdapi.com) and [TMDb](https://www.themoviedb.org/) databases.
 
+[Demo here ;)](https://ja8an.github.io/moove/)
+
 ## Main Features
 
 - Movie search
