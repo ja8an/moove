@@ -3,23 +3,26 @@ import axios from "axios";
 const request = axios.create({
     baseURL: 'http://www.omdbapi.com/',
     params: {
-        apiKey: process.env.REACT_APP_API_KEY
+        apiKey: process.env.REACT_APP_OMDB_API_KEY,
+        type: 'movie'
     }
 });
 
 const omdb = () => {
 
     return {
-        search(s) {
+        search(s, page = 1) {
             return request.get('/', {
-                params: { s }
+                params: { s, page }
             });
         },
         byTitle(title) {
             return "http://www.omdbapi.com/?t=a";
         },
-        byId(id) {
-            return id;
+        byId(i) {
+            return request.get('/', {
+                params: { i, plot: 'full' }
+            });
         }
     };
 

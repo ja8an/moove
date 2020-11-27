@@ -1,4 +1,19 @@
-$body-bg: #000;
-$body-color: #FFF;
+@import url("https://fonts.googleapis.com/css2?family=Swap&family=Open+Sans&display=swap");
 
-@import 'bootstrap/scss/bootstrap.scss';
+$body-bg: #fff;
+$body-color: #333;
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h5,
+h5,
+h6 {
+    font-family: Roboto, sans-serif;
+}
+
+@import "bootstrap/scss/bootstrap.scss";

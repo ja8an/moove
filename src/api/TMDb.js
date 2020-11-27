@@ -10,17 +10,17 @@ const request = axios.create({
 const tmdb = () => {
 
     return {
-        trendOfTheDay(){
+        trendOfTheDay() {
             return request.get('/trending/movie/day');
         }
     };
 
 };
 
-export default tmdb();
-
-const imgUrl = (path, size) => {
+const imgUrl = (path, size = 'original') => {
     return `https://image.tmdb.org/t/p/${size}/${path}`;
 };
 
-export {imgUrl};
+export default tmdb();
+
+export { imgUrl };
